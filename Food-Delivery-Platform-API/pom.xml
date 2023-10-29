@@ -14,7 +14,7 @@
 	<name>Food-Delivery-Platform-API</name>
 	<description>MCT project on food delivery platform</description>
 	<properties>
-		<java.version>21</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
