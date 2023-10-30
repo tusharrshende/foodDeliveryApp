@@ -2,6 +2,7 @@ package com.geekster.Food.Delivery.Platform.API.controller;
 
 import com.geekster.Food.Delivery.Platform.API.model.*;
 import com.geekster.Food.Delivery.Platform.API.model.authModel.AuthenticationInput;
+import com.geekster.Food.Delivery.Platform.API.service.AddressService;
 import com.geekster.Food.Delivery.Platform.API.service.FoodItemService;
 import com.geekster.Food.Delivery.Platform.API.service.OrderService;
 import com.geekster.Food.Delivery.Platform.API.service.UserService;
@@ -21,6 +22,9 @@ public class UserController {
 
     @Autowired
     OrderService orderService;
+
+    @Autowired
+    AddressService addressService;
 
 
     @PostMapping("user/signUp")
@@ -56,6 +60,11 @@ public class UserController {
     @DeleteMapping("order/{id}")
     public String cancelOrderById(Long id) {
         return orderService.cancelOrderById(id);
+    }
+
+    @PostMapping("address")
+    public String createAddress(@RequestParam AuthenticationInput authInfo, @RequestBody Address newAddress) {
+       return addressService.createAddress(authInfo, newAddress);
     }
 
 }
