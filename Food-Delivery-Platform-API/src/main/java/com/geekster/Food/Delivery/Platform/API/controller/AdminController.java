@@ -1,8 +1,10 @@
 package com.geekster.Food.Delivery.Platform.API.controller;
 
+import com.geekster.Food.Delivery.Platform.API.model.Admin;
 import com.geekster.Food.Delivery.Platform.API.model.Category;
 import com.geekster.Food.Delivery.Platform.API.model.FoodItem;
 import com.geekster.Food.Delivery.Platform.API.model.Order;
+import com.geekster.Food.Delivery.Platform.API.service.AdminService;
 import com.geekster.Food.Delivery.Platform.API.service.FoodItemService;
 import com.geekster.Food.Delivery.Platform.API.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,13 @@ public class AdminController {
     @Autowired
     OrderService orderService;
 
+    @Autowired
+    AdminService adminService;
+
+    @PostMapping("signUp")
+    public String adminSignUp(@RequestBody Admin newAdmin) {
+        return adminService.adminSignUp(newAdmin);
+    }
 
     @PostMapping("foodItem")
     public String addFoodItem(@RequestBody FoodItem newFoodItem) {

@@ -33,7 +33,7 @@ public class Admin {
     @Pattern(regexp = "^.+@restroAdmin\\.com$")
     private String adminEmail;
 
-    @Size(min = 6, max = 20)
+    @NotBlank
     private String adminPassword;
 
 }
