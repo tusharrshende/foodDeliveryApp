@@ -21,19 +21,14 @@ public class Admin {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long adminId;
 
-    @NotBlank
     private String adminName;
 
-    @NotBlank
     private String restaurantName;
 
-    @Digits(integer = 10,fraction = 0)
     private String contact;
 
-    @Pattern(regexp = "^.+@restroAdmin\\.com$")
     private String adminEmail;
 
-    @NotBlank
     private String adminPassword;
 
 }

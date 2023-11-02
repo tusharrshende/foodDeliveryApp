@@ -25,9 +25,10 @@ public class AdminController {
     @Autowired
     AdminService adminService;
 
+
     @PostMapping("signUp")
     public String adminSignUp(@RequestBody Admin newAdmin) {
-        return adminService.adminSignUp(newAdmin);
+       return adminService.adminSignUp(newAdmin);
     }
 
     @PostMapping("foodItem")
@@ -36,8 +37,8 @@ public class AdminController {
     }
 
     @PutMapping("foodItem/{id}")
-    public String updateFoodItemById(@PathVariable Long id) {
-       return foodItemService.updateFoodItemById(id);
+    public String updateFoodItemById(@PathVariable Long id, @RequestBody FoodItem foodItem) {
+       return foodItemService.updateFoodItemById(id, foodItem);
     }
 
     @GetMapping("foodItem/{id}")
@@ -49,6 +50,7 @@ public class AdminController {
     public String removeFoodItemById(@PathVariable Long id) {
         return foodItemService.removeFoodItemById(id);
     }
+
     @GetMapping("orders")
     public List<Order> getAllOrders() {
         return orderService.getAllOrders();

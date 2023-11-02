@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -18,16 +19,17 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long orderId;
     private LocalDateTime orderDate;
+
+    @Enumerated(EnumType.STRING)
     private Status orderStatus;
 
+
+    @OneToMany
+    @JoinColumn(name = "fk_orderId")
+    private List<FoodItem> foodItem;
 
 
     @OneToOne
     @JoinColumn(name = "fk_userId")
     private User user;
-
-
-    @ManyToOne
-    @JoinColumn(name = "food_item_id")
-    private FoodItem foodItem;
 }

@@ -48,12 +48,12 @@ public class UserController {
 
     //get all foodItems
     @GetMapping("foodItems")
-    public List<FoodItem> getFoodItems(@RequestBody AuthenticationInput authInfo ) {
+    public List<FoodItem> getFoodItems(AuthenticationInput authInfo ) {
         return foodItemService.getFoodItems(authInfo);
     }
 
     @PostMapping("order")
-    public String createOrder(@RequestParam AuthenticationInput authInfo, @RequestBody Order newOrder) {
+    public String createOrder(AuthenticationInput authInfo, @RequestBody Order newOrder) {
         return orderService.createOrder(authInfo,newOrder);
     }
 
@@ -63,8 +63,8 @@ public class UserController {
     }
 
     @PostMapping("address")
-    public String createAddress(@RequestParam AuthenticationInput authInfo, @RequestBody Address newAddress) {
-       return addressService.createAddress(authInfo, newAddress);
+    public String createAddress(AuthenticationInput authInfo,@RequestBody Address newAddress) {
+        return addressService.createAddress(authInfo,newAddress);
     }
 
 }

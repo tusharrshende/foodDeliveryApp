@@ -16,16 +16,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
-    @NotBlank
     private String userName;
 
-    @Digits(integer = 10,fraction = 0)
     private String contact;
 
-    @Email
     private String userEmail;
 
-    @NotBlank
     private String userPassword;
 
 

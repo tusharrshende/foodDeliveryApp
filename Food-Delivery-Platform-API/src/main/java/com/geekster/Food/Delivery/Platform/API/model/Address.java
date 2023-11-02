@@ -16,29 +16,18 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long addressId;
 
-    @NotBlank
     private String area;
 
-    @NotBlank
     private String city;
 
-    @NotBlank
     private String state;
 
-    @NotBlank
     private String country;
 
-    @NotBlank
     private Long pinCode;
-
 
 
     @OneToOne
     @JoinColumn(name = "fk_userId")
     private User user;
-
-    @OneToOne
-    @JoinColumn(name = "fk_adminId")
-    private Admin admin;
-
 }

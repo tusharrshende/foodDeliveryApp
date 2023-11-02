@@ -10,8 +10,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class AuthenticationInput {
 
-    @Email
     private String email;
-
     private String tokenValue;
 }

@@ -17,12 +17,11 @@ public class FoodItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long foodItemId;
 
-    @NotBlank
     private String foodItemName;
 
-    @NotNull
     private Double foodItemPrice;
 
+    @Enumerated(EnumType.STRING)
     private Category foodItemCategory;
 
 

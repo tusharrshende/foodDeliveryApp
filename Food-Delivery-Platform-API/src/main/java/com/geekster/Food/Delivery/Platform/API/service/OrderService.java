@@ -33,11 +33,11 @@ public class OrderService {
 
     public String createOrder(AuthenticationInput authInfo, Order newOrder) {
         if (authenticationService.authenticate(authInfo)) {
-            User user = userRepo.findByUserId(newOrder.getUser().getUserId());
-            newOrder.setUser(user);
-            FoodItem foodItem = foodItemRepo.findByFoodItemId(newOrder.getFoodItem().getFoodItemId());
-            newOrder.setFoodItem(foodItem);
-            orderRepo.save(newOrder);
+            Order order = new Order();
+            order.setOrderDate(newOrder.getOrderDate());
+            order.setOrderStatus(newOrder.getOrderStatus());
+            order.setFoodItem(newOrder.getFoodItem());
+            orderRepo.save(order);
             return "new order created";
         }
         else {

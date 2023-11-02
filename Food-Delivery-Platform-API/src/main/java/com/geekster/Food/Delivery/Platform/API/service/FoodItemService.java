@@ -33,11 +33,11 @@ public class FoodItemService {
         return newFoodItem.getFoodItemName() + " added successfully";
     }
 
-    public String updateFoodItemById(Long id) {
+    public String updateFoodItemById(Long id, FoodItem foodItem) {
         FoodItem food = foodItemRepo.findById(id).orElseThrow();
-        food.setFoodItemName(food.getFoodItemName());
-        food.setFoodItemCategory(food.getFoodItemCategory());
-        food.setFoodItemPrice(food.getFoodItemPrice());
+        food.setFoodItemName(foodItem.getFoodItemName());
+        food.setFoodItemCategory(foodItem.getFoodItemCategory());
+        food.setFoodItemPrice(foodItem.getFoodItemPrice());
         foodItemRepo.save(food);
         return food.getFoodItemName() + " updated successfully";
     }

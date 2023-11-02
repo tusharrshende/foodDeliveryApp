@@ -16,18 +16,18 @@ public class AddressService {
     AuthenticationService authenticationService;
 
     public String createAddress(AuthenticationInput authInfo,Address newAddress) {
-        if(authenticationService.authenticate(authInfo)) {
-            Address address = new Address();
-            address.setArea(newAddress.getArea());
-            address.setCity(newAddress.getCity());
-            address.setState(newAddress.getState());
-            address.setCountry(newAddress.getCountry());
-            address.setPinCode(newAddress.getPinCode());
-            addressRepo.save(address);
-            return "new address added";
-        }
-        else {
-            return "authentication required";
-        }
+          if(authenticationService.authenticate(authInfo)) {
+              Address address = new Address();
+              address.setArea(newAddress.getArea());
+              address.setCity(newAddress.getCity());
+              address.setState(newAddress.getState());
+              address.setCountry(newAddress.getCountry());
+              address.setPinCode(newAddress.getPinCode());
+              address.setUser(newAddress.getUser());
+              addressRepo.save(address);
+              return "address added successfully";
+          } else {
+              return "authentication required";
+          }
     }
 }
